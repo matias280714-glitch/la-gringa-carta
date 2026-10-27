@@ -2,184 +2,154 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>La Gringa — Carta Digital</title>
 
 <style>
-
 :root{
   --gold:#d6ad63;
-  --gold-light:#f3d99d;
+  --gold2:#f3d89b;
   --cream:#fff8e9;
-  --dark:#090806;
-  --dark2:#15110c;
-  --panel:#1d1710;
-  --line:#5d4728;
-  --muted:#aaa08e;
+  --bg:#090806;
+  --panel:#17130e;
+  --panel2:#211a12;
+  --muted:#b9aa91;
 }
 
 *{
   box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
   scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
   background:
-    radial-gradient(circle at 50% 0%,#382818 0%,#120e09 30%,#080705 70%);
+    radial-gradient(circle at top,#332517 0%,#120e09 35%,#080705 75%);
   color:var(--cream);
   font-family:Georgia,"Times New Roman",serif;
+  line-height:1.5;
 }
 
-/* =========================
-   ENCABEZADO
-========================= */
+/* ================= HEADER ================= */
 
 header{
-  min-height:390px;
+  min-height:380px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
+  padding:50px 20px;
   position:relative;
   overflow:hidden;
 
   background:
     linear-gradient(
       180deg,
-      rgba(5,4,2,.15),
-      rgba(5,4,2,.95)
+      rgba(5,4,2,.25),
+      rgba(5,4,2,.94)
     ),
     radial-gradient(
       circle at 50% 20%,
-      #75532c 0%,
-      #2c1d10 30%,
-      #090806 75%
+      #765329 0%,
+      #2b1e11 30%,
+      #0a0806 72%
     );
-
-  border-bottom:1px solid var(--line);
 }
 
 header:before{
   content:"";
   position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  background:radial-gradient(
-    circle,
-    rgba(214,173,99,.20),
-    transparent 65%
-  );
-  top:-280px;
+  inset:20px;
+  border:1px solid rgba(214,173,99,.35);
+  border-radius:24px;
+  pointer-events:none;
 }
 
 header:after{
   content:"";
   position:absolute;
-  inset:0;
-  background:
-    radial-gradient(
-      circle at 20% 50%,
-      rgba(214,173,99,.12),
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 80% 40%,
-      rgba(214,173,99,.10),
-      transparent 25%
-    );
-  pointer-events:none;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:rgba(214,173,99,.08);
+  filter:blur(60px);
 }
 
 .logo{
   position:relative;
   z-index:2;
   font-family:cursive;
-  font-size:clamp(65px,15vw,115px);
+  font-size:clamp(65px,14vw,115px);
   font-style:italic;
-  font-weight:bold;
-  color:var(--cream);
-  letter-spacing:-4px;
+  color:#fff8e9;
   text-shadow:
-    0 5px 30px #000,
-    0 0 20px rgba(214,173,99,.15);
+    0 4px 8px #000,
+    0 0 35px rgba(214,173,99,.2);
 }
 
 .tag{
   position:relative;
   z-index:2;
   margin-top:5px;
-  color:var(--gold-light);
+  color:var(--gold2);
   letter-spacing:5px;
-  font:600 12px Arial,sans-serif;
   text-transform:uppercase;
+  font:600 12px Arial,sans-serif;
 }
 
-.subtitle{
+.welcome{
   position:relative;
   z-index:2;
-  margin-top:18px;
-  color:#c9bda8;
-  font:13px Arial,sans-serif;
-  letter-spacing:1px;
+  margin-top:24px;
+  max-width:650px;
+  color:#d8c9af;
+  font:14px Arial,sans-serif;
 }
 
-/* =========================
-   NAVEGACIÓN
-========================= */
+/* ================= NAVEGACIÓN ================= */
 
 nav{
   position:sticky;
   top:0;
-  z-index:50;
-
+  z-index:100;
   display:flex;
   gap:8px;
   overflow-x:auto;
+  padding:12px 14px;
 
-  padding:11px 12px;
-
-  background:rgba(8,7,5,.96);
+  background:rgba(9,8,6,.96);
   backdrop-filter:blur(12px);
-
-  border-bottom:1px solid #49381f;
+  border-bottom:1px solid #594323;
 }
 
 nav::-webkit-scrollbar{
   height:3px;
 }
 
-nav::-webkit-scrollbar-thumb{
-  background:var(--gold);
-}
-
 nav a{
-  flex:none;
-
-  padding:9px 14px;
-
+  flex:0 0 auto;
   color:var(--cream);
   text-decoration:none;
-
-  border:1px solid #5d4728;
-  border-radius:30px;
-
+  padding:9px 14px;
+  border:1px solid #604a29;
+  border-radius:25px;
+  background:rgba(255,255,255,.025);
   font:600 12px Arial,sans-serif;
-
   transition:.25s;
 }
 
 nav a:hover{
+  color:#120e08;
   background:var(--gold);
-  color:#17110a;
 }
 
-/* =========================
-   CONTENIDO
-========================= */
+/* ================= CONTENIDO ================= */
 
 main{
   max-width:1200px;
@@ -189,35 +159,28 @@ main{
 
 .intro{
   text-align:center;
-  max-width:750px;
   margin:0 auto 35px;
+  max-width:700px;
 }
 
 .intro h1{
-  color:var(--gold-light);
-  font-size:30px;
+  color:var(--gold2);
+  font-size:32px;
   margin-bottom:8px;
 }
 
 .intro p{
-  color:#bdb29f;
+  color:var(--muted);
   font:14px Arial,sans-serif;
-  line-height:1.6;
 }
 
-/* =========================
-   GRID
-========================= */
+/* ================= TARJETAS ================= */
 
 .grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:22px;
 }
-
-/* =========================
-   TARJETAS
-========================= */
 
 .card{
   position:relative;
@@ -226,118 +189,103 @@ main{
   background:
     linear-gradient(
       145deg,
-      rgba(38,29,19,.98),
+      rgba(40,31,21,.98),
       rgba(13,11,8,.98)
     );
 
   border:1px solid #5d4728;
   border-radius:20px;
+  box-shadow:0 18px 45px rgba(0,0,0,.65);
 
   padding:0 20px 20px;
 
-  box-shadow:
-    0 18px 45px rgba(0,0,0,.65);
-
-  transition:
-    transform .3s,
-    border-color .3s;
+  scroll-margin-top:75px;
 }
 
-.card:hover{
-  transform:translateY(-3px);
-  border-color:#92703d;
+.card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.045),
+      transparent 35%,
+      rgba(214,173,99,.04)
+    );
+  pointer-events:none;
 }
 
-/* =========================
-   IMÁGENES
-========================= */
+/* ================= FOTOS ================= */
 
 .card-image{
   width:calc(100% + 40px);
   height:190px;
-
   margin-left:-20px;
-
   object-fit:cover;
-
   display:block;
-
-  opacity:.88;
 
   border-bottom:1px solid #5d4728;
 
-  background:
-    linear-gradient(
-      135deg,
-      #392817,
-      #15100b
-    );
+  filter:
+    brightness(.78)
+    saturate(.9);
+
+  transition:.4s;
 }
 
-.image-overlay{
-  position:absolute;
-  left:0;
-  right:0;
-  top:120px;
-  height:70px;
-
-  background:
-    linear-gradient(
-      transparent,
-      rgba(12,9,6,.95)
-    );
-
-  pointer-events:none;
+.card:hover .card-image{
+  transform:scale(1.02);
+  filter:
+    brightness(.9)
+    saturate(1);
 }
 
-/* =========================
-   TÍTULOS
-========================= */
+/* ================= TÍTULOS ================= */
 
 .card h2{
   position:relative;
+  z-index:2;
 
-  margin:20px 0 12px;
+  margin:20px 0 14px;
 
-  padding-bottom:10px;
-
-  color:var(--gold-light);
-
-  font-size:27px;
-
+  color:var(--gold2);
+  font-size:28px;
   letter-spacing:.5px;
 
-  border-bottom:1px solid #4e3b23;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 .card h2:after{
   content:"";
-  display:block;
-
-  width:45px;
-  height:2px;
-
-  background:var(--gold);
-
-  margin-top:8px;
+  height:1px;
+  flex:1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(214,173,99,.65),
+      transparent
+    );
 }
 
-/* =========================
-   ITEMS
-========================= */
+/* ================= ITEMS ================= */
 
 .item{
+  position:relative;
+  z-index:2;
+
   display:flex;
-  align-items:flex-start;
   justify-content:space-between;
+  align-items:flex-start;
   gap:15px;
 
   padding:11px 0;
 
-  border-bottom:1px dotted #4f4638;
+  border-bottom:1px dotted #554735;
 
   font-size:16px;
-  line-height:1.35;
 }
 
 .item:last-child{
@@ -345,50 +293,38 @@ main{
 }
 
 .item span{
-  color:#eee4d2;
+  color:#fff8e9;
 }
 
-.item b{
-  flex:none;
-
-  color:var(--gold);
-
-  font:600 11px Arial,sans-serif;
-
-  letter-spacing:.4px;
-
+.price{
+  flex:0 0 auto;
+  color:#bca98a;
+  font:italic 11px Arial,sans-serif;
   white-space:nowrap;
-
-  padding-top:3px;
+  opacity:.75;
 }
 
-/* =========================
-   PIZZAS
-========================= */
+/* ================= SUBTÍTULO PIZZAS ================= */
 
 .subhead{
   display:flex;
   justify-content:flex-end;
-  gap:30px;
+  gap:35px;
 
-  margin:-3px 5px 5px;
+  margin:-5px 4px 5px;
 
   color:var(--gold);
-
-  font:700 10px Arial,sans-serif;
-
+  font:700 11px Arial,sans-serif;
   text-transform:uppercase;
   letter-spacing:1px;
 }
 
-/* =========================
-   NOTAS
-========================= */
+/* ================= AVISO ================= */
 
 .note{
-  margin:25px 0;
+  margin:25px 0 0;
 
-  padding:20px;
+  padding:22px;
 
   text-align:center;
 
@@ -398,60 +334,56 @@ main{
   background:
     linear-gradient(
       135deg,
-      #261b0e,
-      #0f0c08
+      #251b0f,
+      #100d09
     );
 
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.45);
-
-  color:#eee3d0;
-
-  font:14px Arial,sans-serif;
-
-  line-height:1.7;
+  box-shadow:0 12px 30px #0008;
 }
 
 .note strong{
-  color:var(--gold-light);
-  font-size:15px;
+  color:var(--gold2);
 }
 
 .note small{
-  color:#a99e8c;
+  display:block;
+  margin-top:6px;
+  color:#a99b84;
+  font:12px Arial,sans-serif;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 footer{
-  padding:35px 15px 45px;
+  padding:35px 15px;
 
   text-align:center;
 
-  color:#938875;
+  color:#9e917d;
+
+  border-top:1px solid #3c2d1b;
 
   font:12px Arial,sans-serif;
-
-  border-top:1px solid #302519;
 }
 
 .footer-logo{
   color:var(--gold);
   font-family:cursive;
   font-size:28px;
-  margin-bottom:8px;
+  margin-bottom:5px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ================= CELULAR ================= */
 
 @media(max-width:760px){
 
   header{
-    min-height:320px;
+    min-height:330px;
+    padding:40px 15px;
+  }
+
+  header:before{
+    inset:12px;
   }
 
   .logo{
@@ -463,13 +395,17 @@ footer{
     letter-spacing:3px;
   }
 
+  .welcome{
+    font-size:13px;
+  }
+
   main{
     padding:25px 12px 60px;
   }
 
   .grid{
     grid-template-columns:1fr;
-    gap:18px;
+    gap:17px;
   }
 
   .card{
@@ -490,9 +426,25 @@ footer{
   .item{
     font-size:15px;
   }
-
 }
 
+/* ================= ANIMACIÓN ================= */
+
+.card{
+  animation:entrada .5s ease both;
+}
+
+@keyframes entrada{
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 </style>
 </head>
 
@@ -506,47 +458,46 @@ footer{
     Restaurante · Parrilla · Pizza & Pasta
   </div>
 
-  <div class="subtitle">
-    Carta digital · Seleccioná una categoría para comenzar
+  <div class="welcome">
+    Una selección de nuestros platos para disfrutar en La Gringa.
+    <br>
+    <span style="color:#d6ad63">
+      Consultá nuestros precios y opciones disponibles.
+    </span>
   </div>
 
 </header>
 
 
 <nav>
-
-<a href="#entradas">Entradas</a>
-<a href="#minutas">Minutas</a>
-<a href="#ensaladas">Ensaladas</a>
-<a href="#pures">Purés</a>
-<a href="#omelettes">Omelettes</a>
-<a href="#pizzas">Pizzas</a>
-<a href="#pastas">Pastas</a>
-<a href="#salsas">Salsas</a>
-<a href="#empanadas">Empanadas</a>
-<a href="#carnes">Carnes</a>
-<a href="#aves">Aves</a>
-<a href="#pescados">Pescados</a>
-<a href="#postres">Postres</a>
-<a href="#helados">Helados</a>
-<a href="#infusiones">Infusiones</a>
-<a href="#bebidas">Bebidas</a>
-<a href="#cervezas">Cervezas</a>
-
+  <a href="#entradas">Entradas</a>
+  <a href="#minutas">Minutas</a>
+  <a href="#ensaladas">Ensaladas</a>
+  <a href="#pures">Purés</a>
+  <a href="#omelettes">Omelettes</a>
+  <a href="#pizzas">Pizzas</a>
+  <a href="#pastas">Pastas</a>
+  <a href="#salsas">Salsas</a>
+  <a href="#empanadas">Empanadas</a>
+  <a href="#carnes">Carnes</a>
+  <a href="#aves">Aves</a>
+  <a href="#pescados">Pescados</a>
+  <a href="#postres">Postres</a>
+  <a href="#helados">Helados</a>
+  <a href="#infusiones">Infusiones</a>
+  <a href="#bebidas">Bebidas</a>
+  <a href="#cervezas">Cervezas</a>
 </nav>
 
 
 <main>
 
 <div class="intro">
-
-<h1>Bienvenidos a La Gringa</h1>
-
-<p>
-Disfrutá nuestra selección de platos, pastas, pizzas,
-parrilla y postres preparados para compartir.
-</p>
-
+  <h1>Nuestra Carta</h1>
+  <p>
+    Elegí tu plato y consultá a nuestro equipo por precios,
+    disponibilidad y opciones del día.
+  </p>
 </div>
 
 
@@ -556,25 +507,22 @@ parrilla y postres preparados para compartir.
 <!-- ENTRADAS -->
 
 <section class="card" id="entradas">
-
-<img class="card-image"
-src="images/entradas.jpg"
-alt="Entradas La Gringa">
+<img class="card-image" src="images/entrada.jpg" alt="Entradas La Gringa">
 
 <h2>Entradas</h2>
 
-<div class="item"><span>Rabas</span><b>Consultar precio</b></div>
-<div class="item"><span>Tomate relleno de atún</span><b>Consultar precio</b></div>
-<div class="item"><span>Tomate relleno de ave</span><b>Consultar precio</b></div>
-<div class="item"><span>Ensalada rusa</span><b>Consultar precio</b></div>
-<div class="item"><span>Vitel Toné</span><b>Consultar precio</b></div>
-<div class="item"><span>Mayonesa de Ave</span><b>Consultar precio</b></div>
-<div class="item"><span>Mayonesa de Atún</span><b>Consultar precio</b></div>
-<div class="item"><span>Matambre casero con Ensalada Rusa</span><b>Consultar precio</b></div>
-<div class="item"><span>Champignon provenzal caliente</span><b>Consultar precio</b></div>
-<div class="item"><span>Jamón crudo con Rusa</span><b>Consultar precio</b></div>
-<div class="item"><span>Entremés 4 quesos</span><b>Consultar precio</b></div>
-<div class="item"><span>Entrada La Gringa</span><b>Consultar precio</b></div>
+<div class="item"><span>Rabas</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Tomate relleno de atún</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Tomate relleno de ave</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Ensalada rusa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Vitel Toné</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Mayonesa de Ave</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Mayonesa de Atún</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Matambre casero con Ensalada Rusa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Champignon provenzal caliente</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Jamón crudo con Rusa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Entremés 4 quesos</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Entrada La Gringa</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -582,19 +530,16 @@ alt="Entradas La Gringa">
 <!-- MINUTAS -->
 
 <section class="card" id="minutas">
-
-<img class="card-image"
-src="images/minutas.jpg"
-alt="Minutas La Gringa">
+<img class="card-image" src="images/minutas.jpg" alt="Minutas La Gringa">
 
 <h2>Minutas</h2>
 
-<div class="item"><span>Bastón</span><b>Consultar precio</b></div>
-<div class="item"><span>Noisette</span><b>Consultar precio</b></div>
-<div class="item"><span>Pay</span><b>Consultar precio</b></div>
-<div class="item"><span>Papas a la Crema</span><b>Consultar precio</b></div>
-<div class="item"><span>Huevo Frito</span><b>Consultar precio</b></div>
-<div class="item"><span>Españolas</span><b>Consultar precio</b></div>
+<div class="item"><span>Bastón</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Noisette</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Pay</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Papas a la Crema</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Huevo Frito</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Españolas</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -602,36 +547,29 @@ alt="Minutas La Gringa">
 <!-- ENSALADAS -->
 
 <section class="card" id="ensaladas">
-
-<img class="card-image"
-src="images/ensaladas.jpg"
-alt="Ensaladas La Gringa">
+<img class="card-image" src="images/ensaladas.jpg" alt="Ensaladas La Gringa">
 
 <h2>Ensaladas</h2>
 
-<div class="item"><span>1 o 2 Variedades</span><b>Consultar precio</b></div>
-<div class="item"><span>Mixta (Lechuga · Tomate · Cebolla)</span><b>Consultar precio</b></div>
-<div class="item"><span>Variedad Adicional de verdura</span><b>Consultar precio</b></div>
-<div class="item"><span>Rúcula y parmesano</span><b>Consultar precio</b></div>
-<div class="item"><span>César</span><b>Consultar precio</b></div>
-<div class="item"><span>Completa</span><b>Consultar precio</b></div>
+<div class="item"><span>1 o 2 Variedades</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Mixta (Lechuga · Tomate · Cebolla)</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Variedad Adicional de Verdura</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Rúcula y parmesano</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>César</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Completa</span><span class="price">Consultar precio</span></div>
 
 </section>
 
 
-<!-- PURES -->
+<!-- PURÉS -->
 
 <section class="card" id="pures">
 
-<img class="card-image"
-src="images/pures.jpg"
-alt="Purés La Gringa">
-
 <h2>Purés</h2>
 
-<div class="item"><span>Papa</span><b>Consultar precio</b></div>
-<div class="item"><span>Calabaza</span><b>Consultar precio</b></div>
-<div class="item"><span>Mixto</span><b>Consultar precio</b></div>
+<div class="item"><span>Papa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Calabaza</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Mixto</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -640,16 +578,12 @@ alt="Purés La Gringa">
 
 <section class="card" id="omelettes">
 
-<img class="card-image"
-src="images/omelettes.jpg"
-alt="Omelettes La Gringa">
-
 <h2>Omelettes</h2>
 
-<div class="item"><span>Jamón y Queso</span><b>Consultar precio</b></div>
-<div class="item"><span>Verdura y Queso</span><b>Consultar precio</b></div>
-<div class="item"><span>Tortilla de Papas</span><b>Consultar precio</b></div>
-<div class="item"><span>Revuelto Gramajo</span><b>Consultar precio</b></div>
+<div class="item"><span>Jamón y Queso</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Verdura y Queso</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Tortilla de Papas</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Revuelto Gramajo</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -658,9 +592,7 @@ alt="Omelettes La Gringa">
 
 <section class="card" id="pizzas">
 
-<img class="card-image"
-src="images/pizzas.jpg"
-alt="Pizzas La Gringa">
+<img class="card-image" src="images/pizza.jpg" alt="Pizzas La Gringa">
 
 <h2>Pizzas</h2>
 
@@ -669,24 +601,24 @@ alt="Pizzas La Gringa">
 <span>Chica</span>
 </div>
 
-<div class="item"><span>Muzzarella con aceitunas</span><b>Consultar precio</b></div>
-<div class="item"><span>Especial</span><b>Consultar precio</b></div>
-<div class="item"><span>Fugaza</span><b>Consultar precio</b></div>
-<div class="item"><span>Fugazeta</span><b>Consultar precio</b></div>
-<div class="item"><span>Fugazeta Especial</span><b>Consultar precio</b></div>
-<div class="item"><span>Anchoas</span><b>Consultar precio</b></div>
-<div class="item"><span>Roquefort</span><b>Consultar precio</b></div>
-<div class="item"><span>Ananá</span><b>Consultar precio</b></div>
-<div class="item"><span>Calabresa</span><b>Consultar precio</b></div>
-<div class="item"><span>Napolitana</span><b>Consultar precio</b></div>
-<div class="item"><span>Napolitana Especial</span><b>Consultar precio</b></div>
-<div class="item"><span>Provolone</span><b>Consultar precio</b></div>
-<div class="item"><span>Palmitos</span><b>Consultar precio</b></div>
-<div class="item"><span>Champignones</span><b>Consultar precio</b></div>
-<div class="item"><span>A los 4 Quesos</span><b>Consultar precio</b></div>
-<div class="item"><span>Rúcula con Jamón Crudo</span><b>Consultar precio</b></div>
-<div class="item"><span>Faina (porción)</span><b>Consultar precio</b></div>
-<div class="item"><span>Faina al Verdeo (porción)</span><b>Consultar precio</b></div>
+<div class="item"><span>Muzzarella con aceitunas</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Especial</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Fugaza</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Fugazeta</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Fugazeta Especial</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Anchoas</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Roquefort</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Ananá</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Calabresa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Napolitana</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Napolitana Especial</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Provolone</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Palmitos</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Champignones</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>A los 4 Quesos</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Rúcula con Jamón Crudo</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Faina</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Faina al Verdeo</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -695,19 +627,17 @@ alt="Pizzas La Gringa">
 
 <section class="card" id="pastas">
 
-<img class="card-image"
-src="images/pastas.jpg"
-alt="Pastas La Gringa">
+<img class="card-image" src="images/pasta.jpg" alt="Pastas La Gringa">
 
 <h2>Pastas</h2>
 
-<div class="item"><span>Ñoquis de papa o espinaca</span><b>Consultar precio</b></div>
-<div class="item"><span>Ñoquis Popeye</span><b>Consultar precio</b></div>
-<div class="item"><span>Tagliatelle</span><b>Consultar precio</b></div>
-<div class="item"><span>Canelones de verdura</span><b>Consultar precio</b></div>
-<div class="item"><span>Ravioles de verdura o ricota y nuez</span><b>Consultar precio</b></div>
-<div class="item"><span>Sorrentinos de Jamón, Muzzarella y Champignon</span><b>Consultar precio</b></div>
-<div class="item"><span>Sorrentinos capresse</span><b>Consultar precio</b></div>
+<div class="item"><span>Ñoquis de papa o espinaca</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Ñoquis Popeye</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Tagliatelle</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Canelones de verdura</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Ravioles de verdura o ricota y nuez</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Sorrentinos de Jamón, Muzza y Champignon</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Sorrentinos Capresse</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -716,28 +646,24 @@ alt="Pastas La Gringa">
 
 <section class="card" id="salsas">
 
-<img class="card-image"
-src="images/salsas.jpg"
-alt="Salsas La Gringa">
-
 <h2>Salsas</h2>
 
-<div class="item"><span>Manteca u Oliva</span><b>Consultar precio</b></div>
-<div class="item"><span>Crema</span><b>Consultar precio</b></div>
-<div class="item"><span>Blanca</span><b>Consultar precio</b></div>
-<div class="item"><span>Filetto</span><b>Consultar precio</b></div>
-<div class="item"><span>Pesto</span><b>Consultar precio</b></div>
-<div class="item"><span>Bolognesa</span><b>Consultar precio</b></div>
-<div class="item"><span>Rosa</span><b>Consultar precio</b></div>
-<div class="item"><span>Mixta</span><b>Consultar precio</b></div>
-<div class="item"><span>A.T.A.</span><b>Consultar precio</b></div>
-<div class="item"><span>Crema y Champignon</span><b>Consultar precio</b></div>
-<div class="item"><span>Carbonara</span><b>Consultar precio</b></div>
-<div class="item"><span>Escargaro</span><b>Consultar precio</b></div>
-<div class="item"><span>Crema de Verdeo</span><b>Consultar precio</b></div>
-<div class="item"><span>Salsa a los 4 Quesos</span><b>Consultar precio</b></div>
-<div class="item"><span>Estofado de Carnes</span><b>Consultar precio</b></div>
-<div class="item"><span>Parisienne</span><b>Consultar precio</b></div>
+<div class="item"><span>Manteca u Oliva</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Crema</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Blanca</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Filetto</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Pesto</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Bolognesa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Rosa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Mixta</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>A.T.A.</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Crema y Champignon</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Carbonara</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Escargaro</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Crema de Verdeo</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Salsa a los 4 Quesos</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Estofado de Carnes</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Parisienne</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -746,19 +672,15 @@ alt="Salsas La Gringa">
 
 <section class="card" id="empanadas">
 
-<img class="card-image"
-src="images/empanadas.jpg"
-alt="Empanadas La Gringa">
-
 <h2>Empanadas</h2>
 
-<div class="item"><span>Carne</span><b>Consultar precio</b></div>
-<div class="item"><span>Pollo</span><b>Consultar precio</b></div>
-<div class="item"><span>Jamón y Queso</span><b>Consultar precio</b></div>
-<div class="item"><span>Verdura</span><b>Consultar precio</b></div>
-<div class="item"><span>Cebolla y Muzzarella</span><b>Consultar precio</b></div>
-<div class="item"><span>Humita</span><b>Consultar precio</b></div>
-<div class="item"><span>Roquefort</span><b>Consultar precio</b></div>
+<div class="item"><span>Carne</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Pollo</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Jamón y Queso</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Verdura</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Cebolla y Muzzarella</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Humita</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Roquefort</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -767,27 +689,25 @@ alt="Empanadas La Gringa">
 
 <section class="card" id="carnes">
 
-<img class="card-image"
-src="images/carnes.jpg"
-alt="Carnes La Gringa">
+<img class="card-image" src="images/carne.jpg" alt="Carnes La Gringa">
 
 <h2>Carnes</h2>
 
-<div class="item"><span>Milanesa de peceto</span><b>Consultar precio</b></div>
-<div class="item"><span>Milanesa de peceto napolitana</span><b>Consultar precio</b></div>
-<div class="item"><span>Bife de chorizo</span><b>Consultar precio</b></div>
-<div class="item"><span>Minibeef</span><b>Consultar precio</b></div>
-<div class="item"><span>Bife relleno (jamón, queso, arvejas)</span><b>Consultar precio</b></div>
-<div class="item"><span>Bife sevillana</span><b>Consultar precio</b></div>
-<div class="item"><span>Bife de lomo</span><b>Consultar precio</b></div>
-<div class="item"><span>Escalope de lomo al jerez</span><b>Consultar precio</b></div>
-<div class="item"><span>Lomo al champignon</span><b>Consultar precio</b></div>
-<div class="item"><span>Matambrito de cerdo Grille</span><b>Consultar precio</b></div>
-<div class="item"><span>Matambrito de cerdo al Pizzaiola</span><b>Consultar precio</b></div>
-<div class="item"><span>Matambrito de cerdo Gratinado</span><b>Consultar precio</b></div>
-<div class="item"><span>Matambrito de cerdo al verdeo</span><b>Consultar precio</b></div>
-<div class="item"><span>Costillita de cerdo con puré de manzana</span><b>Consultar precio</b></div>
-<div class="item"><span>Costillita de cerdo a la riojana</span><b>Consultar precio</b></div>
+<div class="item"><span>Milanesa de peceto</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Milanesa de peceto napolitana</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Bife de chorizo</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Minibeef</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Bife relleno</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Bife sevillana</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Bife de lomo</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Escalope de lomo al jerez</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Lomo al champignon</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Matambrito de cerdo Grillé</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Matambrito de cerdo al Pizzaiola</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Matambrito de cerdo Gratinado</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Matambrito de cerdo al verdeo</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Costillita de cerdo con puré de manzana</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Costillita de cerdo a la riojana</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -796,19 +716,17 @@ alt="Carnes La Gringa">
 
 <section class="card" id="aves">
 
-<img class="card-image"
-src="images/aves.jpg"
-alt="Aves La Gringa">
+<img class="card-image" src="images/pollo.jpg" alt="Aves La Gringa">
 
 <h2>Aves</h2>
 
-<div class="item"><span>Suprema de pollo</span><b>Consultar precio</b></div>
-<div class="item"><span>Suprema de pollo Napolitana</span><b>Consultar precio</b></div>
-<div class="item"><span>Suprema a la Suiza</span><b>Consultar precio</b></div>
-<div class="item"><span>Suprema Maryland</span><b>Consultar precio</b></div>
-<div class="item"><span>Pechuga a la Francesa</span><b>Consultar precio</b></div>
-<div class="item"><span>Arroz “La Gringa”</span><b>Consultar precio</b></div>
-<div class="item"><span>Pechuga Grillé</span><b>Consultar precio</b></div>
+<div class="item"><span>Suprema de pollo</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Suprema de pollo Napolitana</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Suprema a la Suiza</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Suprema Maryland</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Pechuga a la Francesa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Arroz “La Gringa”</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Pechuga Grillé</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -817,19 +735,17 @@ alt="Aves La Gringa">
 
 <section class="card" id="pescados">
 
-<img class="card-image"
-src="images/pescados.jpg"
-alt="Pescados La Gringa">
+<img class="card-image" src="images/pescado.jpg" alt="Pescados La Gringa">
 
 <h2>Pescados</h2>
 
-<div class="item"><span>Filet de Merluza</span><b>Consultar precio</b></div>
-<div class="item"><span>Salmón al roquefort con noisette</span><b>Consultar precio</b></div>
-<div class="item"><span>Salmón Grillado</span><b>Consultar precio</b></div>
-<div class="item"><span>Salmón crema de verdeo con noisette</span><b>Consultar precio</b></div>
-<div class="item"><span>Trucha al chablis con puré duquesa</span><b>Consultar precio</b></div>
-<div class="item"><span>Trucha a la manteca negra</span><b>Consultar precio</b></div>
-<div class="item"><span>Filet de Brótola grande</span><b>Consultar precio</b></div>
+<div class="item"><span>Filet de Merluza</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Salmón al roquefort con noisette</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Salmón Grillado</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Salmón crema de verdeo con noisette</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Trucha al chablis con puré duquesa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Trucha a la manteca negra</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Filet de Brótola grande</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -838,22 +754,20 @@ alt="Pescados La Gringa">
 
 <section class="card" id="postres">
 
-<img class="card-image"
-src="images/postres.jpg"
-alt="Postres La Gringa">
+<img class="card-image" src="images/postre.jpg" alt="Postres La Gringa">
 
 <h2>Postres</h2>
 
-<div class="item"><span>Budín de Pan Casero con crema o dulce</span><b>Consultar precio</b></div>
-<div class="item"><span>Flan Casero con crema o dulce</span><b>Consultar precio</b></div>
-<div class="item"><span>Ensalada de Fruta Casera</span><b>Consultar precio</b></div>
-<div class="item"><span>Ensalada de Frutas Casera con Helado</span><b>Consultar precio</b></div>
-<div class="item"><span>Panqueque de Dulce de Leche</span><b>Consultar precio</b></div>
-<div class="item"><span>Panqueque de Manzana</span><b>Consultar precio</b></div>
-<div class="item"><span>Panqueque de Manzana Quemado al Rhum</span><b>Consultar precio</b></div>
-<div class="item"><span>Ananá con Almíbar</span><b>Consultar precio</b></div>
-<div class="item"><span>Copa La Gringa</span><b>Consultar precio</b></div>
-<div class="item"><span>Durazno en Almíbar</span><b>Consultar precio</b></div>
+<div class="item"><span>Budín de Pan Casero con crema o dulce</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Flan Casero con crema o dulce</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Ensalada de Fruta Casera</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Ensalada de Frutas con Helado</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Panqueque de Dulce de Leche</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Panqueque de Manzana</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Panqueque de Manzana Quemado al Rhum</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Ananá con Almíbar</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Copa La Gringa</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Durazno en Almíbar</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -862,17 +776,13 @@ alt="Postres La Gringa">
 
 <section class="card" id="helados">
 
-<img class="card-image"
-src="images/helados.jpg"
-alt="Helados La Gringa">
-
 <h2>Helados</h2>
 
-<div class="item"><span>Almendrado</span><b>Consultar precio</b></div>
-<div class="item"><span>Bombón Escocés</span><b>Consultar precio</b></div>
-<div class="item"><span>Bombón Suizo</span><b>Consultar precio</b></div>
-<div class="item"><span>Helado Mixto</span><b>Consultar precio</b></div>
-<div class="item"><span>Medio Helado</span><b>Consultar precio</b></div>
+<div class="item"><span>Almendrado</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Bombón Escocés</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Bombón Suizo</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Helado Mixto</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Medio Helado</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -881,14 +791,10 @@ alt="Helados La Gringa">
 
 <section class="card" id="infusiones">
 
-<img class="card-image"
-src="images/infusiones.jpg"
-alt="Infusiones La Gringa">
-
 <h2>Infusiones</h2>
 
-<div class="item"><span>Café</span><b>Consultar precio</b></div>
-<div class="item"><span>Té</span><b>Consultar precio</b></div>
+<div class="item"><span>Café</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Té</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -897,16 +803,12 @@ alt="Infusiones La Gringa">
 
 <section class="card" id="bebidas">
 
-<img class="card-image"
-src="images/bebidas.jpg"
-alt="Bebidas La Gringa">
-
 <h2>Bebidas sin alcohol</h2>
 
-<div class="item"><span>Gaseosas</span><b>Consultar precio</b></div>
-<div class="item"><span>Levité de 500 cc</span><b>Consultar precio</b></div>
-<div class="item"><span>Agua Mineral</span><b>Consultar precio</b></div>
-<div class="item"><span>Jugo de naranja exprimido</span><b>Consultar precio</b></div>
+<div class="item"><span>Gaseosas</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Levité 500 cc</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Agua Mineral</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Jugo de naranja exprimido</span><span class="price">Consultar precio</span></div>
 
 </section>
 
@@ -915,22 +817,15 @@ alt="Bebidas La Gringa">
 
 <section class="card" id="cervezas">
 
-<img class="card-image"
-src="images/cervezas.jpg"
-alt="Cervezas La Gringa">
-
 <h2>Cervezas</h2>
 
-<div class="item"><span>Miller 473 cc</span><b>Consultar precio</b></div>
-<div class="item"><span>Heineken - Corona porrón</span><b>Consultar precio</b></div>
+<div class="item"><span>Miller 473 cc</span><span class="price">Consultar precio</span></div>
+<div class="item"><span>Heineken · Corona porrón</span><span class="price">Consultar precio</span></div>
 
 </section>
 
-
 </div>
 
-
-<!-- INFORMACIÓN -->
 
 <div class="note">
 
@@ -939,8 +834,6 @@ alt="Cervezas La Gringa">
 <br>
 
 Papas fritas · Puré de papas · Ensalada de lechuga y tomate
-
-<br>
 
 <small>
 El cambio de guarnición se abona como porción.
@@ -955,27 +848,16 @@ El cambio de guarnición se abona como porción.
 
 <br>
 
-Consultá las condiciones y promociones disponibles.
-
-<br><br>
-
-<strong>¿Querés conocer el precio de algún plato?</strong>
-
-<br>
-
-Consultalo con nuestro personal.
+Consultá a nuestro equipo por las condiciones vigentes.
 
 </div>
-
 
 </main>
 
 
 <footer>
 
-<div class="footer-logo">
-La Gringa
-</div>
+<div class="footer-logo">La Gringa</div>
 
 Restaurante · Parrilla · Pizza & Pasta
 
