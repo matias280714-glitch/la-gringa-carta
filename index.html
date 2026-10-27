@@ -1,57 +1,861 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>La Gringa — Carta Digital</title>
+
 <style>
-:root{--gold:#d5aa55;--cream:#f7f0df;--bg:#11100e;--panel:#1b1916;--muted:#b9b0a1}
-*{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top,#29231a,#0d0c0b 55%);color:var(--cream);font-family:Georgia,serif}
-header{padding:42px 18px 30px;text-align:center;border-bottom:1px solid #4d3a1d;background:linear-gradient(180deg,#211b13aa,#11100e)}
-.logo{font-size:clamp(42px,10vw,78px);font-style:italic;color:var(--cream);font-weight:700;letter-spacing:-2px}
-.tag{letter-spacing:3px;color:var(--gold);font:600 12px Arial,sans-serif;text-transform:uppercase}
-nav{position:sticky;top:0;z-index:5;background:#12110feF;border-bottom:1px solid #3c311f;padding:10px;display:flex;gap:8px;overflow:auto}
-nav a{white-space:nowrap;color:var(--cream);text-decoration:none;padding:9px 12px;border:1px solid #4b3b22;border-radius:20px;font:13px Arial,sans-serif}
-main{max-width:1100px;margin:auto;padding:20px 14px 70px;columns:1}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.card{background:linear-gradient(145deg,#211d18,#141311);border:1px solid #5a4626;border-radius:16px;padding:16px;box-shadow:0 10px 28px #0008;break-inside:avoid}
-.card h2{margin:0 0 12px;color:var(--gold);font-size:25px;border-bottom:1px solid #4b3a23;padding-bottom:8px}
-.item{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px dotted #554b3b;font-size:16px;line-height:1.25}
-.item:last-child{border-bottom:0} .item b{white-space:nowrap;color:var(--cream);font-size:15px}
-.subhead{display:flex;justify-content:flex-end;gap:45px;color:var(--gold);font:700 12px Arial;margin:-5px 5px 5px}
-.note{margin:18px 0;padding:18px;border:1px solid var(--gold);border-radius:14px;text-align:center;color:var(--cream);background:#17140f}
-.note strong{color:var(--gold)} footer{text-align:center;color:var(--muted);padding:30px 15px;font:13px Arial}
-@media(max-width:760px){.grid{grid-template-columns:1fr}.item{font-size:15px}.card h2{font-size:23px}header{padding-top:30px}}
-</style>
-<style>
-:root{--gold:#d6ad63;--gold2:#f0d59a;--cream:#fff8e9;--ink:#0b0a08;--panel:#17130e}
-body{background:#090806;color:var(--cream);font-family:Georgia,'Times New Roman',serif}
-header{min-height:330px;display:flex;flex-direction:column;justify-content:center;align-items:center;
-background:linear-gradient(180deg,rgba(5,4,2,.20),rgba(5,4,2,.94)),radial-gradient(circle at 50% 20%,#6a4a25 0,#20170d 32%,#090806 75%);
-position:relative;overflow:hidden}
-header:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 40%,rgba(214,173,99,.18),transparent 25%),radial-gradient(circle at 75% 35%,rgba(214,173,99,.14),transparent 22%);pointer-events:none}
-.logo{font-family:cursive;font-size:clamp(58px,13vw,100px);z-index:1;text-shadow:0 5px 30px #000}
-.tag{z-index:1;font-size:13px;letter-spacing:4px;color:var(--gold2)}
-nav{background:rgba(9,8,6,.96);backdrop-filter:blur(8px);border-bottom:1px solid #5b4527}
-nav a{border-color:#604a29;color:var(--cream);font-weight:600}
-main{max-width:1200px;padding:26px 16px 80px}
-.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
-.card{position:relative;overflow:hidden;border:1px solid #5d4728;border-radius:20px;padding:20px;background:linear-gradient(145deg,#211a12,#0f0d0a 75%);box-shadow:0 18px 45px #000b}
-.card:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.04),transparent 30%,rgba(214,173,99,.04));pointer-events:none}
-.card h2{font-size:28px;color:var(--gold2);letter-spacing:.5px}
-.item{font-size:16px;padding:10px 0}
-.item b{color:#ffe5ad}
-.card:nth-child(4n+1):after,.card:nth-child(4n+2):after{content:"";display:block;height:120px;margin:16px -4px -4px;border-radius:14px;
-background:radial-gradient(circle at 35% 50%,#8d542a 0 7%,transparent 8%),radial-gradient(circle at 60% 45%,#d89a4b 0 9%,transparent 10%),linear-gradient(135deg,#3a2818,#17100a 55%,#5b391b);
-box-shadow:inset 0 0 30px #0009}
-.note{border-color:var(--gold);background:linear-gradient(135deg,#241a0f,#100d09);box-shadow:0 12px 30px #0008}
-footer{color:#a99b84}
-@media(max-width:760px){.grid{grid-template-columns:1fr}.card{border-radius:16px}.card h2{font-size:25px}}
+:root{
+  --gold:#d6ad63;
+  --gold2:#f0d59a;
+  --cream:#fff8e9;
+  --ink:#090806;
+  --panel:#17130e;
+  --muted:#a99b84;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at top,#302417 0,#120e09 38%,#070605 75%);
+  color:var(--cream);
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+/* ENCABEZADO */
+
+header{
+  min-height:350px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  padding:50px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,4,2,.15),
+      rgba(5,4,2,.95)
+    ),
+    radial-gradient(
+      circle at 50% 20%,
+      #75532b 0,
+      #281b0e 32%,
+      #090806 75%
+    );
+
+  border-bottom:1px solid #614927;
+}
+
+header:after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at 25% 40%,
+      rgba(214,173,99,.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(214,173,99,.14),
+      transparent 22%
+    );
+
+  pointer-events:none;
+}
+
+.logo{
+  position:relative;
+  z-index:1;
+
+  font-family:cursive;
+  font-size:clamp(60px,13vw,105px);
+  font-style:italic;
+  font-weight:bold;
+
+  color:var(--cream);
+
+  letter-spacing:-3px;
+
+  text-shadow:
+    0 5px 30px #000,
+    0 2px 5px #000;
+}
+
+.tag{
+  position:relative;
+  z-index:1;
+
+  margin-top:8px;
+
+  color:var(--gold2);
+
+  font:600 13px Arial,sans-serif;
+
+  letter-spacing:4px;
+  text-transform:uppercase;
+}
+
+/* NAVEGACIÓN */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+
+  display:flex;
+  gap:8px;
+
+  padding:11px;
+
+  overflow-x:auto;
+
+  background:rgba(9,8,6,.97);
+
+  backdrop-filter:blur(10px);
+
+  border-bottom:1px solid #5b4527;
+}
+
+nav a{
+  flex:0 0 auto;
+
+  color:var(--cream);
+
+  text-decoration:none;
+
+  padding:9px 13px;
+
+  border:1px solid #604a29;
+  border-radius:20px;
+
+  font:600 13px Arial,sans-serif;
+
+  transition:.25s;
+}
+
+nav a:hover{
+  color:#090806;
+  background:var(--gold);
+  border-color:var(--gold);
+}
+
+/* CONTENIDO */
+
+main{
+  max-width:1200px;
+
+  margin:auto;
+
+  padding:28px 16px 80px;
+}
+
+.grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:22px;
+}
+
+.card{
+  position:relative;
+  overflow:hidden;
+
+  border:1px solid #5d4728;
+  border-radius:20px;
+
+  padding:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #211a12,
+      #0f0d0a 75%
+    );
+
+  box-shadow:
+    0 18px 45px #000b;
+}
+
+.card:before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.04),
+      transparent 30%,
+      rgba(214,173,99,.04)
+    );
+
+  pointer-events:none;
+}
+
+.card h2{
+  position:relative;
+
+  margin:0 0 12px;
+
+  padding-bottom:10px;
+
+  color:var(--gold2);
+
+  font-size:28px;
+
+  letter-spacing:.5px;
+
+  border-bottom:1px solid #604a29;
+}
+
+.item{
+  position:relative;
+
+  display:flex;
+
+  justify-content:space-between;
+  align-items:flex-start;
+
+  gap:15px;
+
+  padding:11px 0;
+
+  border-bottom:1px dotted #554b3b;
+
+  font-size:16px;
+
+  line-height:1.35;
+}
+
+.item:last-child{
+  border-bottom:0;
+}
+
+.item span{
+  color:var(--cream);
+}
+
+.item b{
+  white-space:nowrap;
+
+  color:var(--gold2);
+
+  font-size:12px;
+
+  font-family:Arial,sans-serif;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  letter-spacing:.5px;
+
+  opacity:.85;
+}
+
+/* TEXTO CONSULTAR */
+
+.consultar{
+  color:var(--gold2)!important;
+
+  font-size:11px!important;
+
+  letter-spacing:1px;
+
+  opacity:.75;
+}
+
+/* SUBTÍTULOS */
+
+.subhead{
+  display:flex;
+
+  justify-content:flex-end;
+
+  gap:35px;
+
+  margin:-5px 5px 5px;
+
+  color:var(--gold);
+
+  font:700 11px Arial,sans-serif;
+
+  text-transform:uppercase;
+
+  letter-spacing:1px;
+}
+
+/* FOTOS */
+
+.galeria{
+  margin:45px 0 30px;
+}
+
+.galeria h2{
+  text-align:center;
+
+  color:var(--gold2);
+
+  font-size:30px;
+
+  margin-bottom:25px;
+}
+
+.fotos{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:16px;
+}
+
+.foto{
+  overflow:hidden;
+
+  border-radius:18px;
+
+  border:1px solid #604a29;
+
+  background:#15110c;
+
+  box-shadow:0 12px 30px #0009;
+
+  aspect-ratio:4/3;
+}
+
+.foto img{
+  width:100%;
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  transition:.4s;
+}
+
+.foto:hover img{
+  transform:scale(1.05);
+}
+
+/* AVISO */
+
+.note{
+  margin:20px 0;
+
+  padding:20px;
+
+  border:1px solid var(--gold);
+
+  border-radius:16px;
+
+  text-align:center;
+
+  color:var(--cream);
+
+  background:
+    linear-gradient(
+      135deg,
+      #241a0f,
+      #100d09
+    );
+
+  box-shadow:0 12px 30px #0008;
+}
+
+.note strong{
+  color:var(--gold2);
+}
+
+.note small{
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+  padding:35px 15px;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  font:13px Arial,sans-serif;
+}
+
+/* CELULAR */
+
+@media(max-width:760px){
+
+  header{
+    min-height:290px;
+    padding:40px 15px;
+  }
+
+  .logo{
+    font-size:65px;
+  }
+
+  .tag{
+    font-size:10px;
+    letter-spacing:2.5px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    border-radius:16px;
+  }
+
+  .card h2{
+    font-size:25px;
+  }
+
+  .item{
+    font-size:15px;
+  }
+
+  .fotos{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:480px){
+
+  .fotos{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
+
 <body>
-<header><div class="logo">La Gringa</div><div class="tag">Restaurante · Parrilla · Pizza & Pasta</div></header>
-<nav><a href="#entradas">Entradas</a><a href="#minutas">Minutas</a><a href="#ensaladas">Ensaladas</a><a href="#pur-s">Purés</a><a href="#omelettes">Omelettes</a><a href="#pizzas">Pizzas</a><a href="#pastas">Pastas</a><a href="#salsas">Salsas</a><a href="#empanadas">Empanadas</a><a href="#carnes">Carnes</a><a href="#aves">Aves</a><a href="#pescados">Pescados</a><a href="#postres">Postres</a><a href="#helados">Helados</a><a href="#infusiones">Infusiones</a><a href="#bebidas-sin-alcohol">Bebidas sin alcohol</a><a href="#cervezas">Cervezas</a></nav>
-<main><div class="grid"><section class="card" id="entradas"><h2>Entradas</h2><div class="item"><span>Rabas</span><b>$ 23.000</b></div><div class="item"><span>Tomate relleno de atún</span><b>$ 13.000</b></div><div class="item"><span>Tomate relleno de ave</span><b>$ 11.000</b></div><div class="item"><span>Ensalada rusa</span><b>$ 9.000</b></div><div class="item"><span>Vitel Toné</span><b>$ 16.000</b></div><div class="item"><span>Mayonesa de Ave</span><b>$ 10.000</b></div><div class="item"><span>Mayonesa de Atún</span><b>$ 12.000</b></div><div class="item"><span>Matambre casero con Ensalada Rusa</span><b>$ 20.000</b></div><div class="item"><span>Champignon provenzal caliente</span><b>$ 20.000</b></div><div class="item"><span>Jamón crudo con Rusa</span><b>$ 20.000</b></div><div class="item"><span>Entremés 4 quesos</span><b>$ 18.000</b></div><div class="item"><span>Entrada La Gringa</span><b>$ 22.000</b></div></section><section class="card" id="minutas"><h2>Minutas</h2><div class="item"><span>Bastón</span><b>$ 7.000</b></div><div class="item"><span>Noisette</span><b>$ 8.000</b></div><div class="item"><span>Pay</span><b>$ 8.000</b></div><div class="item"><span>Papas a la Crema</span><b>$ 12.000</b></div><div class="item"><span>Huevo Frito</span><b>$ 3.000</b></div><div class="item"><span>Españolas</span><b>$ 9.000</b></div></section><section class="card" id="ensaladas"><h2>Ensaladas</h2><div class="item"><span>1 o 2 Variedades</span><b>$ 9.000</b></div><div class="item"><span>Mixta (Lech - Tom - Cebolla)</span><b>$ 9.500</b></div><div class="item"><span>Variedad Adicional (de verdura)</span><b>$ 3.000</b></div><div class="item"><span>Rúcula y parmesano</span><b>$ 10.000</b></div><div class="item"><span>César</span><b>—</b></div><div class="item"><span>Completa</span><b>$ 20.000</b></div></section><section class="card" id="pur-s"><h2>Purés</h2><div class="item"><span>Papa</span><b>$ 8.000</b></div><div class="item"><span>Calabaza</span><b>$ 8.000</b></div><div class="item"><span>Mixto</span><b>$ 8.000</b></div></section><section class="card" id="omelettes"><h2>Omelettes</h2><div class="item"><span>Jamón y Queso</span><b>$ 18.000</b></div><div class="item"><span>Verdura y Queso</span><b>$ 16.000</b></div><div class="item"><span>Tortilla de Papas</span><b>$ 16.000</b></div><div class="item"><span>Revuelto Gramajo</span><b>$ 18.000</b></div></section><section class="card" id="pizzas"><h2>Pizzas</h2><div class="subhead"><span>Grande</span><span>Chica</span></div><div class="item"><span>Muzzarela con aceitunas</span><b>$ 17.000 / 10.000</b></div><div class="item"><span>Especial</span><b>$ 25.000 / 17.000</b></div><div class="item"><span>Fugaza</span><b>$ 17.000 /</b></div><div class="item"><span>Fugazeta</span><b>$ 20.000 /</b></div><div class="item"><span>Fugazeta Especial</span><b>$ 26.000 /</b></div><div class="item"><span>Anchoas</span><b>$ 21.000 / 14.000</b></div><div class="item"><span>Roquefort</span><b>$ 24.000 / 16.000</b></div><div class="item"><span>Ananá</span><b>$ 24.000 / 16.000</b></div><div class="item"><span>Calabresa</span><b>$ 24.000 / 16.000</b></div><div class="item"><span>Napolitana</span><b>$ 20.000 / 13.000</b></div><div class="item"><span>Napolitana Especial</span><b>$ 26.000 / 18.000</b></div><div class="item"><span>Provolone</span><b>$ 20.000 / 13.000</b></div><div class="item"><span>Palmitos</span><b>$ 32.000 / 21.000</b></div><div class="item"><span>Champignones</span><b>$ 32.000 / 21.000</b></div><div class="item"><span>A los 4 Quesos</span><b>$ 29.000 / 20.000</b></div><div class="item"><span>Rúcula con Jamón Crudo</span><b>$ 32.000 / 21.000</b></div><div class="item"><span>Faina (porción)</span><b>$ 3.500</b></div><div class="item"><span>Faina al Verdeo (porción)</span><b>$ 3.500</b></div></section><section class="card" id="pastas"><h2>Pastas</h2><div class="item"><span>Ñoquis de papa o espinaca</span><b>$ 9.000</b></div><div class="item"><span>Ñoquis Popeye</span><b>$ 20.000</b></div><div class="item"><span>Tagliatelle</span><b>$ 9.500</b></div><div class="item"><span>Canelones de verdura</span><b>$ 12.000</b></div><div class="item"><span>Ravioles de verdura o ricota y nuez</span><b>$ 12.000</b></div><div class="item"><span>Sorrentinos (Jamón Muzza y Champignon)</span><b>$ 13.000</b></div><div class="item"><span>Sorrentinos capresse</span><b>$ 13.000</b></div></section><section class="card" id="salsas"><h2>Salsas</h2><div class="item"><span>Manteca u Oliva</span><b>$ 3.000</b></div><div class="item"><span>Crema</span><b>$ 7.000</b></div><div class="item"><span>Blanca</span><b>$ 6.000</b></div><div class="item"><span>Filetto</span><b>$ 6.000</b></div><div class="item"><span>Pesto</span><b>$ 6.000</b></div><div class="item"><span>Bolognesa</span><b>$ 9.000</b></div><div class="item"><span>Rosa</span><b>$ 7.000</b></div><div class="item"><span>Mixta</span><b>$ 7.000</b></div><div class="item"><span>A.T.A.</span><b>$ 7.000</b></div><div class="item"><span>Crema y Champignon</span><b>$ 12.000</b></div><div class="item"><span>Carbonara</span><b>$ 12.000</b></div><div class="item"><span>Escargaro</span><b>$ 7.000</b></div><div class="item"><span>Crema de Verdeo</span><b>$ 9.000</b></div><div class="item"><span>Salsa a los 4 Quesos</span><b>$ 12.000</b></div><div class="item"><span>Estofado de Carnes</span><b>$ 15.000</b></div><div class="item"><span>Parisienne</span><b>$ 15.000</b></div></section><section class="card" id="empanadas"><h2>Empanadas</h2><div class="item"><span>Carne, Pollo, Jamón y Queso, Verdura</span><b>$ 3.000</b></div><div class="item"><span>Cebolla y Muzzarella, Humita, Roquefort</span><b>$ 3.000</b></div></section><section class="card" id="carnes"><h2>Carnes</h2><div class="item"><span>Milanesa de pececto</span><b>$ 22.000</b></div><div class="item"><span>Milanesa de pececto napolitana</span><b>$ 27.000</b></div><div class="item"><span>Bife de chorizo</span><b>$ 27.000</b></div><div class="item"><span>Minibeef</span><b>$ 24.000</b></div><div class="item"><span>Bife relleno (jamón, queso, arvejas)</span><b>$ 32.000</b></div><div class="item"><span>Bife sevillana (berenjena, tomate, jamón, fritas)</span><b>$ 32.000</b></div><div class="item"><span>Bife de lomo</span><b>$ 31.000</b></div><div class="item"><span>Escalope de lomo al jerez</span><b>$ 35.000</b></div><div class="item"><span>Lomo al champignon (a la crema o demi glace)</span><b>$ 35.000</b></div><div class="item"><span>Matambrito de cerdo Grille</span><b>$ 26.000</b></div><div class="item"><span>Matambrito de cerdo al Pizzaiola</span><b>$ 29.000</b></div><div class="item"><span>Matambrito de cerdo Gratinado</span><b>$ 29.000</b></div><div class="item"><span>Matambrito de cerdo al verdeo</span><b>$ 29.000</b></div><div class="item"><span>Costillita de cerdo con puré de manzana</span><b>$ 25.000</b></div><div class="item"><span>Costillita de cerdo a la riojana</span><b>$ 29.000</b></div></section><section class="card" id="aves"><h2>Aves</h2><div class="item"><span>Suprema de pollo</span><b>$ 21.500</b></div><div class="item"><span>Suprema de pollo Napolitana</span><b>$ 26.500</b></div><div class="item"><span>Suprema a la Suiza</span><b>$ 28.000</b></div><div class="item"><span>Suprema Maryland</span><b>$ 29.000</b></div><div class="item"><span>Pechuga a la Francesa</span><b>$ 27.000</b></div><div class="item"><span>Arroz “La Gringa” (pollo, arroz, champignon, crema, queso)</span><b>$ 25.000</b></div><div class="item"><span>Pechuga Grillé</span><b>$ 20.000</b></div></section><section class="card" id="pescados"><h2>Pescados</h2><div class="item"><span>Filet de Merluza</span><b>$ 25.000</b></div><div class="item"><span>Salmón al roquefort con noisette</span><b>$ 39.000</b></div><div class="item"><span>Salmón Grillado</span><b>$ 35.000</b></div><div class="item"><span>Salmón Crema de Verdeo con noisette</span><b>$ 39.000</b></div><div class="item"><span>Trucha al chablis con puré duquesa</span><b>—</b></div><div class="item"><span>Trucha a la manteca negra</span><b>—</b></div><div class="item"><span>Filet de Brótola grande</span><b>$ 28.000</b></div></section><section class="card" id="postres"><h2>Postres</h2><div class="item"><span>Budín de Pan Casero con crema o dulce</span><b>$ 16.000</b></div><div class="item"><span>Flan Casero con crema o dulce</span><b>$ 16.000</b></div><div class="item"><span>Ensalada de Fruta Casera</span><b>$ 12.000</b></div><div class="item"><span>Ensalada de Frutas Casera con Helado</span><b>$ 16.000</b></div><div class="item"><span>Panqueque de Dulce de Leche</span><b>$ 13.000</b></div><div class="item"><span>Panqueque de Manzana</span><b>$ 12.000</b></div><div class="item"><span>Panqueque de Manzana Quemado al Rhum</span><b>$ 15.000</b></div><div class="item"><span>Ananá con Almíbar</span><b>$ 14.000</b></div><div class="item"><span>Copa La Gringa</span><b>$ 18.000</b></div><div class="item"><span>Durazno en Almíbar</span><b>$ 12.000</b></div></section><section class="card" id="helados"><h2>Helados</h2><div class="item"><span>Almendrado</span><b>$ 8.000</b></div><div class="item"><span>Bombón Escocés</span><b>$ 8.000</b></div><div class="item"><span>Bombón Suizo</span><b>$ 8.000</b></div><div class="item"><span>Helado Mixto</span><b>$ 8.000</b></div><div class="item"><span>Medio Helado</span><b>—</b></div></section><section class="card" id="infusiones"><h2>Infusiones</h2><div class="item"><span>Café</span><b>$ 4.000</b></div><div class="item"><span>Té</span><b>$ 2.500</b></div></section><section class="card" id="bebidas-sin-alcohol"><h2>Bebidas sin alcohol</h2><div class="item"><span>Gaseosas</span><b>$ 4.500</b></div><div class="item"><span>Levité de 500 cc</span><b>$ 4.500</b></div><div class="item"><span>Agua Mineral</span><b>$ 4.200</b></div><div class="item"><span>Jugo de naranja exprimido</span><b>$ 7.000</b></div></section><section class="card" id="cervezas"><h2>Cervezas</h2><div class="item"><span>Miller 473 cc</span><b>$ 4.800</b></div><div class="item"><span>Heineken-Corona porrón</span><b>$ 5.000</b></div></section></div>
-<div class="note"><strong>Guarniciones a elección:</strong><br> Papas fritas · puré de papas · ensalada de lechuga y tomate<br><small>El cambio de guarnición se abona como porción.</small></div>
-<div class="note"><strong>SERVICIO DE MESA $800</strong><br><b>10% DE DESCUENTO ABONANDO EN EFECTIVO</b></div>
+
+<header>
+  <div class="logo">La Gringa</div>
+
+  <div class="tag">
+    Restaurante · Parrilla · Pizza & Pasta
+  </div>
+</header>
+
+<nav>
+  <a href="#entradas">Entradas</a>
+  <a href="#minutas">Minutas</a>
+  <a href="#ensaladas">Ensaladas</a>
+  <a href="#pur-s">Purés</a>
+  <a href="#omelettes">Omelettes</a>
+  <a href="#pizzas">Pizzas</a>
+  <a href="#pastas">Pastas</a>
+  <a href="#salsas">Salsas</a>
+  <a href="#empanadas">Empanadas</a>
+  <a href="#carnes">Carnes</a>
+  <a href="#aves">Aves</a>
+  <a href="#pescados">Pescados</a>
+  <a href="#postres">Postres</a>
+  <a href="#helados">Helados</a>
+  <a href="#infusiones">Infusiones</a>
+  <a href="#bebidas">Bebidas</a>
+  <a href="#cervezas">Cervezas</a>
+</nav>
+
+<main>
+
+<div class="grid">
+
+<!-- ENTRADAS -->
+
+<section class="card" id="entradas">
+<h2>Entradas</h2>
+
+<div class="item"><span>Rabas</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Tomate relleno de atún</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Tomate relleno de ave</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Ensalada rusa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Vitel Toné</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Mayonesa de Ave</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Mayonesa de Atún</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Matambre casero con Ensalada Rusa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Champignon provenzal caliente</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Jamón crudo con Rusa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Entremés 4 quesos</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Entrada La Gringa</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- MINUTAS -->
+
+<section class="card" id="minutas">
+<h2>Minutas</h2>
+
+<div class="item"><span>Bastón</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Noisette</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Pay</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Papas a la Crema</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Huevo Frito</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Españolas</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- ENSALADAS -->
+
+<section class="card" id="ensaladas">
+<h2>Ensaladas</h2>
+
+<div class="item"><span>1 o 2 Variedades</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Mixta (Lechuga · Tomate · Cebolla)</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Variedad Adicional de Verdura</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Rúcula y parmesano</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>César</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Completa</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- PURÉS -->
+
+<section class="card" id="pur-s">
+<h2>Purés</h2>
+
+<div class="item"><span>Papa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Calabaza</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Mixto</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- OMELETTES -->
+
+<section class="card" id="omelettes">
+<h2>Omelettes</h2>
+
+<div class="item"><span>Jamón y Queso</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Verdura y Queso</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Tortilla de Papas</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Revuelto Gramajo</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- PIZZAS -->
+
+<section class="card" id="pizzas">
+<h2>Pizzas</h2>
+
+<div class="subhead">
+<span>Grande</span>
+<span>Chica</span>
+</div>
+
+<div class="item"><span>Muzzarela con aceitunas</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Especial</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Fugaza</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Fugazeta</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Fugazeta Especial</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Anchoas</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Roquefort</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Ananá</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Calabresa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Napolitana</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Napolitana Especial</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Provolone</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Palmitos</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Champignones</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>A los 4 Quesos</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Rúcula con Jamón Crudo</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Faina (porción)</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Faina al Verdeo (porción)</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- PASTAS -->
+
+<section class="card" id="pastas">
+<h2>Pastas</h2>
+
+<div class="item"><span>Ñoquis de papa o espinaca</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Ñoquis Popeye</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Tagliatelle</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Canelones de verdura</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Ravioles de verdura o ricota y nuez</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Sorrentinos de Jamón, Muzzarella y Champignon</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Sorrentinos Capresse</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- SALSAS -->
+
+<section class="card" id="salsas">
+<h2>Salsas</h2>
+
+<div class="item"><span>Manteca u Oliva</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Crema</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Blanca</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Filetto</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Pesto</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Bolognesa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Rosa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Mixta</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>A.T.A.</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Crema y Champignon</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Carbonara</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Escargaro</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Crema de Verdeo</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Salsa a los 4 Quesos</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Estofado de Carnes</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Parisienne</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- EMPANADAS -->
+
+<section class="card" id="empanadas">
+<h2>Empanadas</h2>
+
+<div class="item">
+<span>Carne · Pollo · Jamón y Queso · Verdura</span>
+<b class="consultar">Consultar</b>
+</div>
+
+<div class="item">
+<span>Cebolla y Muzzarella · Humita · Roquefort</span>
+<b class="consultar">Consultar</b>
+</div>
+
+</section>
+
+
+<!-- CARNES -->
+
+<section class="card" id="carnes">
+<h2>Carnes</h2>
+
+<div class="item"><span>Milanesa de peceto</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Milanesa de peceto napolitana</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Bife de chorizo</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Minibeef</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Bife relleno (jamón, queso, arvejas)</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Bife sevillana</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Bife de lomo</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Escalope de lomo al jerez</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Lomo al champignon</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Matambrito de cerdo Grille</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Matambrito de cerdo al Pizzaiola</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Matambrito de cerdo Gratinado</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Matambrito de cerdo al verdeo</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Costillita de cerdo con puré de manzana</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Costillita de cerdo a la riojana</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- AVES -->
+
+<section class="card" id="aves">
+<h2>Aves</h2>
+
+<div class="item"><span>Suprema de pollo</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Suprema de pollo Napolitana</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Suprema a la Suiza</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Suprema Maryland</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Pechuga a la Francesa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Arroz “La Gringa”</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Pechuga Grillé</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- PESCADOS -->
+
+<section class="card" id="pescados">
+<h2>Pescados</h2>
+
+<div class="item"><span>Filet de Merluza</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Salmón al roquefort con noisette</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Salmón Grillado</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Salmón Crema de Verdeo con noisette</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Trucha al chablis con puré duquesa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Trucha a la manteca negra</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Filet de Brótola grande</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- POSTRES -->
+
+<section class="card" id="postres">
+<h2>Postres</h2>
+
+<div class="item"><span>Budín de Pan Casero con crema o dulce</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Flan Casero con crema o dulce</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Ensalada de Fruta Casera</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Ensalada de Frutas Casera con Helado</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Panqueque de Dulce de Leche</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Panqueque de Manzana</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Panqueque de Manzana Quemado al Rhum</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Ananá con Almíbar</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Copa La Gringa</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Durazno en Almíbar</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- HELADOS -->
+
+<section class="card" id="helados">
+<h2>Helados</h2>
+
+<div class="item"><span>Almendrado</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Bombón Escocés</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Bombón Suizo</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Helado Mixto</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Medio Helado</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- INFUSIONES -->
+
+<section class="card" id="infusiones">
+<h2>Infusiones</h2>
+
+<div class="item"><span>Café</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Té</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- BEBIDAS -->
+
+<section class="card" id="bebidas">
+<h2>Bebidas sin alcohol</h2>
+
+<div class="item"><span>Gaseosas</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Levité 500 cc</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Agua Mineral</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Jugo de naranja exprimido</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+
+<!-- CERVEZAS -->
+
+<section class="card" id="cervezas">
+<h2>Cervezas</h2>
+
+<div class="item"><span>Miller 473 cc</span><b class="consultar">Consultar</b></div>
+<div class="item"><span>Heineken / Corona porrón</span><b class="consultar">Consultar</b></div>
+
+</section>
+
+</div>
+
+
+<!-- FOTOS -->
+
+<section class="galeria">
+
+<h2>Especialidades de La Gringa</h2>
+
+<div class="fotos">
+
+<div class="foto">
+<img src="imagenes/plato-1.jpg" alt="Especialidad La Gringa">
+</div>
+
+<div class="foto">
+<img src="imagenes/plato-2.jpg" alt="Especialidad La Gringa">
+</div>
+
+<div class="foto">
+<img src="imagenes/plato-3.jpg" alt="Especialidad La Gringa">
+</div>
+
+<div class="foto">
+<img src="imagenes/plato-4.jpg" alt="Especialidad La Gringa">
+</div>
+
+<div class="foto">
+<img src="imagenes/plato-5.jpg" alt="Especialidad La Gringa">
+</div>
+
+<div class="foto">
+<img src="imagenes/plato-6.jpg" alt="Especialidad La Gringa">
+</div>
+
+</div>
+
+</section>
+
+
+<div class="note">
+
+<strong>Guarniciones a elección</strong>
+
+<br><br>
+
+Papas fritas · Puré de papas · Ensalada de lechuga y tomate
+
+<br>
+
+<small>
+El cambio de guarnición se abona como porción.
+</small>
+
+</div>
+
+
+<div class="note">
+
+<strong>Consultá precios y disponibilidad al momento de realizar tu pedido.</strong>
+
+<br>
+
+<small>
+Los precios pueden variar.
+</small>
+
+</div>
+
+
 </main>
-<footer>La Gringa · Carta digital · Precios expresados en pesos argentinos</footer>
-</body></html>
+
+
+<footer>
+
+La Gringa · Restaurante · Parrilla · Pizza & Pasta
+
+</footer>
+
+
+</body>
+</html>
