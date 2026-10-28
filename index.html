@@ -35,6 +35,8 @@ body{
   line-height:1.5;
 }
 
+/* ================= HEADER ================= */
+
 header{
   min-height:380px;
   display:flex;
@@ -110,6 +112,8 @@ header:after{
   font:14px Arial,sans-serif;
 }
 
+/* ================= NAVEGACIÓN ================= */
+
 nav{
   position:sticky;
   top:0;
@@ -145,6 +149,8 @@ nav a:hover{
   background:var(--gold);
 }
 
+/* ================= CONTENIDO ================= */
+
 main{
   max-width:1200px;
   margin:auto;
@@ -167,6 +173,8 @@ main{
   color:var(--muted);
   font:14px Arial,sans-serif;
 }
+
+/* ================= TARJETAS ================= */
 
 .grid{
   display:grid;
@@ -208,6 +216,8 @@ main{
   pointer-events:none;
 }
 
+/* ================= FOTOS ================= */
+
 .card-image{
   width:calc(100% + 40px);
   height:190px;
@@ -230,6 +240,8 @@ main{
     brightness(.9)
     saturate(1);
 }
+
+/* ================= TÍTULOS ================= */
 
 .card h2{
   position:relative;
@@ -257,6 +269,8 @@ main{
       transparent
     );
 }
+
+/* ================= ITEMS ================= */
 
 .item{
   position:relative;
@@ -290,6 +304,8 @@ main{
   opacity:.75;
 }
 
+/* ================= SUBTÍTULO PIZZAS ================= */
+
 .subhead{
   display:flex;
   justify-content:flex-end;
@@ -302,6 +318,8 @@ main{
   text-transform:uppercase;
   letter-spacing:1px;
 }
+
+/* ================= AVISO ================= */
 
 .note{
   margin:25px 0 0;
@@ -334,6 +352,8 @@ main{
   font:12px Arial,sans-serif;
 }
 
+/* ================= FOOTER ================= */
+
 footer{
   padding:35px 15px;
 
@@ -352,6 +372,8 @@ footer{
   font-size:28px;
   margin-bottom:5px;
 }
+
+/* ================= CELULAR ================= */
 
 @media(max-width:760px){
 
@@ -405,6 +427,8 @@ footer{
     font-size:15px;
   }
 }
+
+/* ================= ANIMACIÓN ================= */
 
 .card{
   animation:entrada .5s ease both;
@@ -483,7 +507,7 @@ footer{
 <!-- ENTRADAS -->
 
 <section class="card" id="entradas">
-<img class="card-image" src="src/Rabas.jpeg" alt="Entradas La Gringa">
+<img class="card-image" src="images/entrada.jpg" alt="Entradas La Gringa">
 
 <h2>Entradas</h2>
 
@@ -506,7 +530,11 @@ footer{
 <!-- MINUTAS -->
 
 <section class="card" id="minutas">
+<<<<<<< HEAD
 <img class="card-image" src="src/papass.jpg" alt="Minutas La Gringa">
+=======
+<img class="card-image" src="images/minutas.jpg" alt="Minutas La Gringa">
+>>>>>>> 1c399f6c8dd43ffdc79daa538f3d18447882f43e
 
 <h2>Minutas</h2>
 
@@ -523,7 +551,7 @@ footer{
 <!-- ENSALADAS -->
 
 <section class="card" id="ensaladas">
-<img class="card-image" src="src/ensalada.png" alt="Ensaladas La Gringa">
+<img class="card-image" src="images/ensaladas.jpg" alt="Ensaladas La Gringa">
 
 <h2>Ensaladas</h2>
 
@@ -553,8 +581,6 @@ footer{
 <!-- OMELETTES -->
 
 <section class="card" id="omelettes">
-
-<img class="card-image" src="images/omelettes.jpg" alt="Omelettes La Gringa">
 
 <h2>Omelettes</h2>
 
@@ -605,7 +631,7 @@ footer{
 
 <section class="card" id="pastas">
 
-<img class="card-image" src="src/pasta.jpg" alt="Pastas La Gringa">
+<img class="card-image" src="images/pasta.jpg" alt="Pastas La Gringa">
 
 <h2>Pastas</h2>
 
@@ -650,8 +676,6 @@ footer{
 
 <section class="card" id="empanadas">
 
-<img class="card-image" src="images/empanadas.jpg" alt="Empanadas La Gringa">
-
 <h2>Empanadas</h2>
 
 <div class="item"><span>Carne</span><span class="price">Consultar precio</span></div>
@@ -669,7 +693,7 @@ footer{
 
 <section class="card" id="carnes">
 
-<img class="card-image" src="src/carne.jpg" alt="Carnes La Gringa">
+<img class="card-image" src="images/carne.jpg" alt="Carnes La Gringa">
 
 <h2>Carnes</h2>
 
@@ -696,7 +720,7 @@ footer{
 
 <section class="card" id="aves">
 
-<img class="card-image" src="src/pollo.jpeg" alt="Aves La Gringa">
+<img class="card-image" src="images/pollo.jpg" alt="Aves La Gringa">
 
 <h2>Aves</h2>
 
@@ -715,7 +739,7 @@ footer{
 
 <section class="card" id="pescados">
 
-<img class="card-image" src="src/pescado.jpg" alt="Pescados La Gringa">
+<img class="card-image" src="images/pescado.jpg" alt="Pescados La Gringa">
 
 <h2>Pescados</h2>
 
@@ -755,8 +779,6 @@ footer{
 <!-- HELADOS -->
 
 <section class="card" id="helados">
-
-<img class="card-image" src="images/helados.jpg" alt="Helados La Gringa">
 
 <h2>Helados</h2>
 
