@@ -35,8 +35,6 @@ body{
   line-height:1.5;
 }
 
-/* ================= HEADER ================= */
-
 header{
   min-height:380px;
   display:flex;
@@ -112,8 +110,6 @@ header:after{
   font:14px Arial,sans-serif;
 }
 
-/* ================= NAVEGACIÓN ================= */
-
 nav{
   position:sticky;
   top:0;
@@ -149,8 +145,6 @@ nav a:hover{
   background:var(--gold);
 }
 
-/* ================= CONTENIDO ================= */
-
 main{
   max-width:1200px;
   margin:auto;
@@ -173,8 +167,6 @@ main{
   color:var(--muted);
   font:14px Arial,sans-serif;
 }
-
-/* ================= TARJETAS ================= */
 
 .grid{
   display:grid;
@@ -216,8 +208,6 @@ main{
   pointer-events:none;
 }
 
-/* ================= FOTOS ================= */
-
 .card-image{
   width:calc(100% + 40px);
   height:190px;
@@ -240,8 +230,6 @@ main{
     brightness(.9)
     saturate(1);
 }
-
-/* ================= TÍTULOS ================= */
 
 .card h2{
   position:relative;
@@ -269,8 +257,6 @@ main{
       transparent
     );
 }
-
-/* ================= ITEMS ================= */
 
 .item{
   position:relative;
@@ -304,8 +290,6 @@ main{
   opacity:.75;
 }
 
-/* ================= SUBTÍTULO PIZZAS ================= */
-
 .subhead{
   display:flex;
   justify-content:flex-end;
@@ -318,8 +302,6 @@ main{
   text-transform:uppercase;
   letter-spacing:1px;
 }
-
-/* ================= AVISO ================= */
 
 .note{
   margin:25px 0 0;
@@ -352,8 +334,6 @@ main{
   font:12px Arial,sans-serif;
 }
 
-/* ================= FOOTER ================= */
-
 footer{
   padding:35px 15px;
 
@@ -372,8 +352,6 @@ footer{
   font-size:28px;
   margin-bottom:5px;
 }
-
-/* ================= CELULAR ================= */
 
 @media(max-width:760px){
 
@@ -427,8 +405,6 @@ footer{
     font-size:15px;
   }
 }
-
-/* ================= ANIMACIÓN ================= */
 
 .card{
   animation:entrada .5s ease both;
@@ -578,6 +554,8 @@ footer{
 
 <section class="card" id="omelettes">
 
+<img class="card-image" src="images/omelettes.jpg" alt="Omelettes La Gringa">
+
 <h2>Omelettes</h2>
 
 <div class="item"><span>Jamón y Queso</span><span class="price">Consultar precio</span></div>
@@ -671,6 +649,8 @@ footer{
 <!-- EMPANADAS -->
 
 <section class="card" id="empanadas">
+
+<img class="card-image" src="images/empanadas.jpg" alt="Empanadas La Gringa">
 
 <h2>Empanadas</h2>
 
@@ -775,6 +755,8 @@ footer{
 <!-- HELADOS -->
 
 <section class="card" id="helados">
+
+<img class="card-image" src="images/helados.jpg" alt="Helados La Gringa">
 
 <h2>Helados</h2>
 
